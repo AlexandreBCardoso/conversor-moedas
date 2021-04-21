@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		BCAADB772630C31F00BEB425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB762630C31F00BEB425 /* AppDelegate.swift */; };
 		BCAADB792630C31F00BEB425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB782630C31F00BEB425 /* SceneDelegate.swift */; };
-		BCAADB7B2630C31F00BEB425 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB7A2630C31F00BEB425 /* ViewController.swift */; };
 		BCAADB7E2630C31F00BEB425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAADB7C2630C31F00BEB425 /* Main.storyboard */; };
 		BCAADB802630C32000BEB425 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCAADB7F2630C32000BEB425 /* Assets.xcassets */; };
 		BCAADB832630C32000BEB425 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */; };
+		BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BCAADB732630C31F00BEB425 /* Conversor Moedas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversor Moedas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAADB762630C31F00BEB425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAADB782630C31F00BEB425 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCAADB7A2630C31F00BEB425 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BCAADB7D2630C31F00BEB425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCAADB7F2630C32000BEB425 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCAADB822630C32000BEB425 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCAADB842630C32000BEB425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				BCAADB762630C31F00BEB425 /* AppDelegate.swift */,
 				BCAADB782630C31F00BEB425 /* SceneDelegate.swift */,
-				BCAADB7A2630C31F00BEB425 /* ViewController.swift */,
 				BCAADB7C2630C31F00BEB425 /* Main.storyboard */,
 				BCAADB7F2630C32000BEB425 /* Assets.xcassets */,
 				BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */,
 				BCAADB842630C32000BEB425 /* Info.plist */,
+				BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */,
 			);
 			path = "Conversor Moedas";
 			sourceTree = "<group>";
@@ -137,8 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAADB7B2630C31F00BEB425 /* ViewController.swift in Sources */,
 				BCAADB772630C31F00BEB425 /* AppDelegate.swift in Sources */,
+				BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */,
 				BCAADB792630C31F00BEB425 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
