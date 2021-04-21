@@ -13,6 +13,9 @@ class ListagemMoedasVM {
 	private let listMoedaWorker: ListagemMoedasWorker = ListagemMoedasWorker()
 	private var listCurrency: ListCurrency?
 	private var currencies: [Currency] = [Currency]()
+	private var currenciesFiltered: [Currency] = [Currency]()
+	
+	var searchBarActive: Bool = false
 	
 	
 	// MARK: - Function
@@ -33,11 +36,38 @@ class ListagemMoedasVM {
 	}
 	
 	func numberOfRows() -> Int {
-		return self.currencies.count
+		if self.searchBarActive {
+			return self.currenciesFiltered.count
+		} else {
+			return self.currencies.count
+		}
 	}
 	
 	func getCurrency(indexPath: IndexPath) -> Currency {
-		return self.currencies[indexPath.row]
+		if self.searchBarActive {
+			return self.currenciesFiltered[indexPath.row]
+		} else {
+			return self.currencies[indexPath.row]
+		}
 	}
 	
+	func isActiveSearchBar(value: Bool) {
+		self.searchBarActive = value
+	}
+	
+	func searchBar(textDidChange searchText: String) {
+		self.currenciesFiltered = self.currencies.filter({ (currencie) -> Bool in
+			let tmp: NSString = currencie.code as NSString
+			let range = tmp.range(of: searchText, options: .caseInsensitive)
+			return range.location != NSNotFound
+		})
+		
+		if self.currenciesFiltered.count == 0 {
+			self.searchBarActive = false
+		} else {
+			self.searchBarActive = true
+		}
+		
+	}
+		
 }
