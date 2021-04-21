@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum Segue: String {
+	case listaMoeda = "segueListaMoeda"
+}
+
 class ConversorVC: UIViewController {
 	
 	// MARK: - IBOutlet
@@ -24,6 +28,7 @@ class ConversorVC: UIViewController {
 	
 	// MARK: - IBAction
 	@IBAction func tappedTrocaMoedaButton(_ sender: UIButton) {
+		performSegue(withIdentifier: Segue.listaMoeda.rawValue, sender: nil)
 	}
 	
 	@IBAction func tappedConverterButton(_ sender: UIButton) {

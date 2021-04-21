@@ -14,6 +14,9 @@
 		BCAADB832630C32000BEB425 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */; };
 		BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */; };
 		BCAADB912630CA8400BEB425 /* ListagemMoedasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */; };
+		BCAADB952630CD5F00BEB425 /* ListagemMoedasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */; };
+		BCAADB982630CE2200BEB425 /* ListagemMoedasWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */; };
+		BCAADB9B2630CEEC00BEB425 /* ListCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		BCAADB842630C32000BEB425 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversorVC.swift; sourceTree = "<group>"; };
 		BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListagemMoedasVC.swift; sourceTree = "<group>"; };
+		BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListagemMoedasVM.swift; sourceTree = "<group>"; };
+		BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListagemMoedasWorker.swift; sourceTree = "<group>"; };
+		BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +67,11 @@
 				BCAADB762630C31F00BEB425 /* AppDelegate.swift */,
 				BCAADB782630C31F00BEB425 /* SceneDelegate.swift */,
 				BCAADB7C2630C31F00BEB425 /* Main.storyboard */,
+				BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */,
 				BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */,
 				BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */,
+				BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */,
+				BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */,
 				BCAADB7F2630C32000BEB425 /* Assets.xcassets */,
 				BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */,
 				BCAADB842630C32000BEB425 /* Info.plist */,
@@ -141,8 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCAADB772630C31F00BEB425 /* AppDelegate.swift in Sources */,
+				BCAADB9B2630CEEC00BEB425 /* ListCurrency.swift in Sources */,
 				BCAADB912630CA8400BEB425 /* ListagemMoedasVC.swift in Sources */,
 				BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */,
+				BCAADB952630CD5F00BEB425 /* ListagemMoedasVM.swift in Sources */,
+				BCAADB982630CE2200BEB425 /* ListagemMoedasWorker.swift in Sources */,
 				BCAADB792630C31F00BEB425 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
