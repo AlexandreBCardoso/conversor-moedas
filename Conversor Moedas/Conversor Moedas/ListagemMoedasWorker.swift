@@ -27,7 +27,9 @@ class ListagemMoedasWorker {
 			let jsonDecoder = JSONDecoder()
 			
 			do {
-				let list = try jsonDecoder.decode(ListCurrency.self, from: _data)
+				var list = try jsonDecoder.decode(ListCurrency.self, from: _data)
+				list.loadCurrenciesSorted()
+				
 				completion(list, nil)
 				
 			} catch {

@@ -7,30 +7,31 @@
 
 import Foundation
 
+protocol ListagemMoedasVMDelegate: class {
+	func success()
+	func failure(error: Error?)
+	func didSelectecCurrency(value: Currency?)
+}
+
 class ListagemMoedasVM {
 	
 	// MARK: - Variable
 	private let listMoedaWorker: ListagemMoedasWorker = ListagemMoedasWorker()
 	private var listCurrency: ListCurrency?
-	private var currencies: [Currency] = [Currency]()
+//	private var currencies: [Currency] = [Currency]()
 	private var currenciesFiltered: [Currency] = [Currency]()
-	
 	var searchBarActive: Bool = false
+	weak var delegate: ListagemMoedasVMDelegate?
 	
 	
 	// MARK: - Function
-	func loadListCurrency(completion: @escaping(_ success: Bool) -> Void) {
+	func loadListCurrency() {
 		listMoedaWorker.loadListCurrency { (currency, error) in
 			if let _currency = currency {
 				self.listCurrency = _currency
-				
-				for (key, value) in _currency.currencies {
-					self.currencies.append(Currency(code: key, name: value))
-				}
-				
-				completion(true)
+				self.delegate?.success()
 			} else {
-				completion(false)
+				self.delegate?.failure(error: error)
 			}
 		}
 	}
@@ -39,15 +40,15 @@ class ListagemMoedasVM {
 		if self.searchBarActive {
 			return self.currenciesFiltered.count
 		} else {
-			return self.currencies.count
+			return self.listCurrency?.currenciesLoad?.count ?? 0
 		}
 	}
 	
-	func getCurrency(indexPath: IndexPath) -> Currency {
+	func getCurrency(indexPath: IndexPath) -> Currency? {
 		if self.searchBarActive {
 			return self.currenciesFiltered[indexPath.row]
 		} else {
-			return self.currencies[indexPath.row]
+			return (self.listCurrency?.currenciesLoad?[indexPath.row])!
 		}
 	}
 	
@@ -56,11 +57,18 @@ class ListagemMoedasVM {
 	}
 	
 	func searchBar(textDidChange searchText: String) {
-		self.currenciesFiltered = self.currencies.filter({ (currencie) -> Bool in
-			let tmp: NSString = currencie.code as NSString
-			let range = tmp.range(of: searchText, options: .caseInsensitive)
-			return range.location != NSNotFound
-		})
+		
+		self.currenciesFiltered = self.listCurrency?.currenciesLoad?.filter({ (currencie) -> Bool in
+			if searchText.count > 3 {
+				let tmp: NSString = currencie.name as NSString
+				let range = tmp.range(of: searchText, options: .caseInsensitive)
+				return range.location != NSNotFound
+			} else {
+				let tmp: NSString = currencie.code as NSString
+				let range = tmp.range(of: searchText, options: .caseInsensitive)
+				return range.location != NSNotFound
+			}
+		}) ?? []
 		
 		if self.currenciesFiltered.count == 0 {
 			self.searchBarActive = false
@@ -68,6 +76,14 @@ class ListagemMoedasVM {
 			self.searchBarActive = true
 		}
 		
+	}
+	
+	func didSelectedCurrency(indexPath: IndexPath) {
+		if self.searchBarActive {
+			self.delegate?.didSelectecCurrency(value: self.currenciesFiltered[indexPath.row])
+		} else {
+			self.delegate?.didSelectecCurrency(value: self.listCurrency?.currenciesLoad?[indexPath.row])
+		}
 	}
 		
 }

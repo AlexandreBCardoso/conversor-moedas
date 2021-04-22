@@ -29,9 +29,20 @@ struct ListCurrency: Decodable {
 	let terms: String
 	let privacy: String
 	let currencies: [String: String]
+	var currenciesLoad: [Currency]? = []
+	
+	mutating func loadCurrenciesSorted() {
+		var temp: [Currency] = []
+		
+		for (key, value) in currencies {
+			temp.append(Currency(code: key, name: value))
+		}
+		self.currenciesLoad = temp.sorted(by: {$0.code < $1.code})
+	}
+	
 }
 
-struct Currency {
+struct Currency: Decodable {
 	let code: String
 	let name: String
 }

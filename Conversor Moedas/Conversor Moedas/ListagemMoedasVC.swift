@@ -7,6 +7,13 @@
 
 import UIKit
 
+
+protocol ListagemMoedasVCProtocol: class {
+	func didSelectedCurrrencyOrigem(value: Currency?)
+	func didSelectedCurrrencyDestino(value: Currency?)
+}
+
+
 class ListagemMoedasVC: UIViewController {
 	
 	// MARK: - IBOutlet
@@ -15,8 +22,8 @@ class ListagemMoedasVC: UIViewController {
 	
 	// MARK: - Variable
 	private let viewModel: ListagemMoedasVM = ListagemMoedasVM()
-	
-	
+	var buttonTag: Int?
+	weak var delegate: ListagemMoedasVCProtocol?
 	
 	
 	// MARK: - Lifecycle
@@ -24,6 +31,7 @@ class ListagemMoedasVC: UIViewController {
 		super.viewDidLoad()
 		
 		self.searchBar.delegate = self
+		self.viewModel.delegate = self
 		
 		configureTableView()
 		loadListCurrency()
@@ -37,15 +45,7 @@ class ListagemMoedasVC: UIViewController {
 	}
 	
 	private func loadListCurrency() {
-		self.viewModel.loadListCurrency { (success) in
-			if success {
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-				}
-			} else {
-				print("===>> erro no carregamento de Lista de Moedas")
-			}
-		}
+		self.viewModel.loadListCurrency()
 	}
 		
 }
@@ -62,23 +62,25 @@ extension ListagemMoedasVC: UITableViewDataSource, UITableViewDelegate {
 		let currency = self.viewModel.getCurrency(indexPath: indexPath)
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 				
-		cell.textLabel?.text = currency.code
-		cell.detailTextLabel?.text = currency.name
+		cell.textLabel?.text = currency?.code
+		cell.detailTextLabel?.text = currency?.name
 				
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.viewModel.didSelectedCurrency(indexPath: indexPath)
 	}
 
 }
 
 
-// MARK: - Extension Searchbar
+// MARK: - Extension SearchBar
 extension ListagemMoedasVC: UISearchBarDelegate {
 	
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		print(#function)
-		print(searchText)
-		
 		self.viewModel.searchBar(textDidChange: searchText)
+		self.tableView.reloadData()
 	}
 	
 	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -95,8 +97,33 @@ extension ListagemMoedasVC: UISearchBarDelegate {
 	}
 	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-		self.searchBarActive = false
+		self.viewModel.searchBarActive = false
 		searchBar.resignFirstResponder()
+	}
+	
+}
+
+
+// MARK: - Extension ViewModel Delegate
+extension ListagemMoedasVC: ListagemMoedasVMDelegate {
+	
+	func didSelectecCurrency(value: Currency?) {
+		if buttonTag == 1 {
+			self.delegate?.didSelectedCurrrencyOrigem(value: value)
+		} else {
+			self.delegate?.didSelectedCurrrencyDestino(value: value)
+		}
+		self.navigationController?.popViewController(animated: true)
+	}
+	
+	func success() {
+		DispatchQueue.main.async {
+			self.tableView.reloadData()
+		}
+	}
+	
+	func failure(error: Error?) {
+		print("===>> Error: \(String(describing: error?.localizedDescription))")
 	}
 	
 }
