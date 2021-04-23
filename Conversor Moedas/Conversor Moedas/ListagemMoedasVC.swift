@@ -22,7 +22,6 @@ class ListagemMoedasVC: UIViewController {
 	
 	// MARK: - Variable
 	private let viewModel: ListagemMoedasVM = ListagemMoedasVM()
-	var buttonTag: Int?
 	weak var delegate: ListagemMoedasVCProtocol?
 	
 	
@@ -47,7 +46,11 @@ class ListagemMoedasVC: UIViewController {
 	private func loadListCurrency() {
 		self.viewModel.loadListCurrency()
 	}
-		
+	
+	func setupViewModel(value: Int?) {
+		self.viewModel.setTagButton(value: value)
+	}
+	
 }
 
 
@@ -61,17 +64,17 @@ extension ListagemMoedasVC: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let currency = self.viewModel.getCurrency(indexPath: indexPath)
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-				
+		
 		cell.textLabel?.text = currency?.code
 		cell.detailTextLabel?.text = currency?.name
-				
+		
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		self.viewModel.didSelectedCurrency(indexPath: indexPath)
 	}
-
+	
 }
 
 
@@ -107,14 +110,25 @@ extension ListagemMoedasVC: UISearchBarDelegate {
 // MARK: - Extension ViewModel Delegate
 extension ListagemMoedasVC: ListagemMoedasVMDelegate {
 	
-	func didSelectecCurrency(value: Currency?) {
-		if buttonTag == 1 {
-			self.delegate?.didSelectedCurrrencyOrigem(value: value)
-		} else {
-			self.delegate?.didSelectedCurrrencyDestino(value: value)
-		}
+	func didSelectecCurrencyOrigin(value: Currency?) {
+		self.delegate?.didSelectedCurrrencyOrigem(value: value)
 		self.navigationController?.popViewController(animated: true)
 	}
+	
+	func didSelectecCurrencyDestiny(value: Currency?) {
+		self.delegate?.didSelectedCurrrencyDestino(value: value)
+		self.navigationController?.popViewController(animated: true)
+	}
+	
+	
+//	func didSelectecCurrency(value: Currency?) {
+//		//		if buttonTag == 1 {
+//		//			self.delegate?.didSelectedCurrrencyOrigem(value: value)
+//		//		} else {
+//		//			self.delegate?.didSelectedCurrrencyDestino(value: value)
+//		//		}
+//		//		self.navigationController?.popViewController(animated: true)
+//	}
 	
 	func success() {
 		DispatchQueue.main.async {

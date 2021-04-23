@@ -19,10 +19,15 @@ class ConversorVC: UIViewController {
 	@IBOutlet weak var moedaDesLabel: UILabel!
 	@IBOutlet weak var valueConvertidoLabel: UILabel!
 	
+	// MARK: - Variable
+	private let viewModel: ConversorVM = ConversorVM()
+	
 	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		self.viewModel.delegate = self
 		
 		configureTextField()
 	}
@@ -31,7 +36,7 @@ class ConversorVC: UIViewController {
 		if segue.identifier == Segue.listaMoeda.rawValue {
 			if let listaMoedaVC = segue.destination as? ListagemMoedasVC {
 				listaMoedaVC.delegate = self
-				listaMoedaVC.buttonTag = sender as? Int
+				listaMoedaVC.setupViewModel(value: sender as? Int)
 			}
 		}
 	}
@@ -49,6 +54,9 @@ class ConversorVC: UIViewController {
 	}
 	
 	@IBAction func tappedConverterButton(_ sender: UIButton) {
+		self.viewModel.getQuotes(value: valueTextField.text ?? "",
+										 origin: self.moedaOriLabel.text ?? "",
+										 destiny: self.moedaDesLabel.text ?? "")
 	}
 	
 		
@@ -75,6 +83,17 @@ extension ConversorVC: UITextFieldDelegate {
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true
+	}
+	
+}
+
+
+extension ConversorVC: ConversorVMProtocol {
+	
+	func successCalculatingExchangeValue(value: String) {
+		DispatchQueue.main.async {
+			self.valueConvertidoLabel.text = value
+		}
 	}
 	
 }

@@ -17,6 +17,8 @@
 		BCAADB952630CD5F00BEB425 /* ListagemMoedasVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */; };
 		BCAADB982630CE2200BEB425 /* ListagemMoedasWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */; };
 		BCAADB9B2630CEEC00BEB425 /* ListCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */; };
+		BCDA87CA26324BD30066519A /* ConversorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDA87C926324BD30066519A /* ConversorVM.swift */; };
+		BCDA87CE26324C810066519A /* ConversorWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDA87CD26324C810066519A /* ConversorWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListagemMoedasVM.swift; sourceTree = "<group>"; };
 		BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListagemMoedasWorker.swift; sourceTree = "<group>"; };
 		BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCurrency.swift; sourceTree = "<group>"; };
+		BCDA87C926324BD30066519A /* ConversorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversorVM.swift; sourceTree = "<group>"; };
+		BCDA87CD26324C810066519A /* ConversorWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversorWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +75,9 @@
 				BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */,
 				BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */,
 				BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */,
+				BCDA87C926324BD30066519A /* ConversorVM.swift */,
 				BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */,
+				BCDA87CD26324C810066519A /* ConversorWorker.swift */,
 				BCAADB7F2630C32000BEB425 /* Assets.xcassets */,
 				BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */,
 				BCAADB842630C32000BEB425 /* Info.plist */,
@@ -149,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCDA87CA26324BD30066519A /* ConversorVM.swift in Sources */,
 				BCAADB772630C31F00BEB425 /* AppDelegate.swift in Sources */,
 				BCAADB9B2630CEEC00BEB425 /* ListCurrency.swift in Sources */,
+				BCDA87CE26324C810066519A /* ConversorWorker.swift in Sources */,
 				BCAADB912630CA8400BEB425 /* ListagemMoedasVC.swift in Sources */,
 				BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */,
 				BCAADB952630CD5F00BEB425 /* ListagemMoedasVM.swift in Sources */,

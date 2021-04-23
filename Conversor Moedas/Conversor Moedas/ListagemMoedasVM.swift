@@ -10,7 +10,8 @@ import Foundation
 protocol ListagemMoedasVMDelegate: class {
 	func success()
 	func failure(error: Error?)
-	func didSelectecCurrency(value: Currency?)
+	func didSelectecCurrencyOrigin(value: Currency?)
+	func didSelectecCurrencyDestiny(value: Currency?)
 }
 
 class ListagemMoedasVM {
@@ -22,6 +23,7 @@ class ListagemMoedasVM {
 	private var currenciesFiltered: [Currency] = [Currency]()
 	var searchBarActive: Bool = false
 	weak var delegate: ListagemMoedasVMDelegate?
+	private var tag: Int?
 	
 	
 	// MARK: - Function
@@ -79,11 +81,24 @@ class ListagemMoedasVM {
 	}
 	
 	func didSelectedCurrency(indexPath: IndexPath) {
+		var currencySelected: Currency?
+		
 		if self.searchBarActive {
-			self.delegate?.didSelectecCurrency(value: self.currenciesFiltered[indexPath.row])
+			currencySelected = self.currenciesFiltered[indexPath.row]
 		} else {
-			self.delegate?.didSelectecCurrency(value: self.listCurrency?.currenciesLoad?[indexPath.row])
+			currencySelected = self.listCurrency?.currenciesLoad?[indexPath.row]
 		}
+		
+		if self.tag == 1 {
+			self.delegate?.didSelectecCurrencyOrigin(value: currencySelected)
+		} else {
+			self.delegate?.didSelectecCurrencyDestiny(value: currencySelected)
+		}
+		
+	}
+	
+	func setTagButton(value: Int?) {
+		self.tag = value
 	}
 		
 }
