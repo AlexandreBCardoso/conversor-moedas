@@ -16,125 +16,139 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moeda Origem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNw-wp-a4B">
-                                <rect key="frame" x="138" y="118" width="138" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12I-ht-gjj">
-                                <rect key="frame" x="274" y="167" width="110" height="33"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCb-PO-uca">
+                                <rect key="frame" x="40" y="240" width="334" height="372"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb7-gz-PRw">
+                                        <rect key="frame" x="25" y="25" width="42" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsX-07-Wq0">
+                                        <rect key="frame" x="25" y="54" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="6qE-mQ-4Hg"/>
+                                            <constraint firstAttribute="width" constant="50" id="lpv-GI-tm1"/>
+                                        </constraints>
+                                        <state key="normal" image="dollar"/>
+                                        <connections>
+                                            <action selector="tappedTrocaMoedaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DMv-rf-5Ym"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite um valor" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JTo-mr-9Ew">
+                                        <rect key="frame" x="125" y="62" width="159" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnT-vT-s2j">
+                                        <rect key="frame" x="15" y="175.5" width="304" height="1"/>
+                                        <color key="backgroundColor" red="0.77822405880000001" green="0.77822405880000001" blue="0.77822405880000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="l2o-Fd-QNd"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q89-Hc-RRj">
+                                        <rect key="frame" x="25" y="240.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="20b-WP-3Es"/>
+                                            <constraint firstAttribute="width" constant="50" id="Jq3-hX-rf8"/>
+                                        </constraints>
+                                        <state key="normal" image="dollar"/>
+                                        <connections>
+                                            <action selector="tappedTrocaMoedaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Tr-YC-Nkh"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1j-VP-yqh">
+                                        <rect key="frame" x="125" y="248.5" width="159" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="8bS-1m-MfY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBP-Fa-bxj">
+                                        <rect key="frame" x="40" y="312" width="254" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="VSg-hW-3ku"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Converter">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedConverterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Md3-cw-UPS"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moeda Origem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3J1-4f-8KZ">
+                                        <rect key="frame" x="158.5" y="26.5" width="115.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moeda Destino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-HJ-095">
+                                        <rect key="frame" x="156.5" y="213" width="117.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-aT-7d0">
+                                        <rect key="frame" x="25" y="211.5" width="42" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="VVG-FE-TSd"/>
+                                    <constraint firstItem="b1j-VP-yqh" firstAttribute="centerY" secondItem="Q89-Hc-RRj" secondAttribute="centerY" id="22U-Tt-cY7"/>
+                                    <constraint firstItem="eb7-gz-PRw" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="25" id="2iA-2W-rME"/>
+                                    <constraint firstAttribute="trailing" secondItem="JTo-mr-9Ew" secondAttribute="trailing" constant="50" id="51V-5e-Bht"/>
+                                    <constraint firstItem="JTo-mr-9Ew" firstAttribute="leading" secondItem="KsX-07-Wq0" secondAttribute="trailing" constant="50" id="7xS-ox-ZMN"/>
+                                    <constraint firstItem="Q89-Hc-RRj" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="25" id="8aa-Ey-5yy"/>
+                                    <constraint firstItem="a6v-aT-7d0" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="25" id="9V0-H7-dGG"/>
+                                    <constraint firstItem="3J1-4f-8KZ" firstAttribute="centerY" secondItem="eb7-gz-PRw" secondAttribute="centerY" id="BAP-Wy-sLh"/>
+                                    <constraint firstAttribute="bottom" secondItem="BBP-Fa-bxj" secondAttribute="bottom" constant="20" id="BW1-sn-T5F"/>
+                                    <constraint firstAttribute="trailing" secondItem="KnT-vT-s2j" secondAttribute="trailing" constant="15" id="HbJ-Vd-Nh8"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZMd-HJ-095" secondAttribute="trailing" constant="60" id="Ia9-zz-ISC"/>
+                                    <constraint firstItem="KnT-vT-s2j" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="15" id="KOT-fb-t3e"/>
+                                    <constraint firstItem="b1j-VP-yqh" firstAttribute="leading" secondItem="Q89-Hc-RRj" secondAttribute="trailing" constant="50" id="OYT-1Z-haw"/>
+                                    <constraint firstItem="Q89-Hc-RRj" firstAttribute="top" secondItem="a6v-aT-7d0" secondAttribute="bottom" constant="5" id="aml-xT-bCl"/>
+                                    <constraint firstItem="a6v-aT-7d0" firstAttribute="top" secondItem="KnT-vT-s2j" secondAttribute="bottom" constant="35" id="fGd-4d-uzF"/>
+                                    <constraint firstItem="eb7-gz-PRw" firstAttribute="top" secondItem="JCb-PO-uca" secondAttribute="top" constant="25" id="fYy-Ny-tyA"/>
+                                    <constraint firstItem="KsX-07-Wq0" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="25" id="gbL-Jc-Gae"/>
+                                    <constraint firstAttribute="trailing" secondItem="b1j-VP-yqh" secondAttribute="trailing" constant="50" id="iLt-TD-Pea"/>
+                                    <constraint firstAttribute="trailing" secondItem="BBP-Fa-bxj" secondAttribute="trailing" constant="40" id="jiS-pq-4Rk"/>
+                                    <constraint firstItem="JTo-mr-9Ew" firstAttribute="centerY" secondItem="KsX-07-Wq0" secondAttribute="centerY" id="mQ0-rT-IWN"/>
+                                    <constraint firstAttribute="trailing" secondItem="3J1-4f-8KZ" secondAttribute="trailing" constant="60" id="qCq-WK-cUU"/>
+                                    <constraint firstItem="KnT-vT-s2j" firstAttribute="centerY" secondItem="JCb-PO-uca" secondAttribute="centerY" constant="-10" id="r9g-3Y-44N"/>
+                                    <constraint firstItem="BBP-Fa-bxj" firstAttribute="leading" secondItem="JCb-PO-uca" secondAttribute="leading" constant="40" id="ukV-Rh-Mr8"/>
+                                    <constraint firstItem="ZMd-HJ-095" firstAttribute="centerY" secondItem="a6v-aT-7d0" secondAttribute="centerY" id="wik-iU-xp5"/>
+                                    <constraint firstItem="KsX-07-Wq0" firstAttribute="top" secondItem="eb7-gz-PRw" secondAttribute="bottom" constant="5" id="zeb-2k-akK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Trocar moeda"/>
-                                <connections>
-                                    <action selector="tappedTrocaMoedaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oRi-Nq-ghC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50s-4d-GFH">
-                                <rect key="frame" x="30" y="167" width="194" height="33"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor a ser Convertido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d85-ZM-zP9">
-                                <rect key="frame" x="30" y="402" width="193.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite um valor" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cXy-Ng-1Ec">
-                                <rect key="frame" x="259" y="397" width="125" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kU-8o-nq3">
-                                <rect key="frame" x="274" y="329" width="110" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="Wpl-JQ-pRE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Trocar moeda"/>
-                                <connections>
-                                    <action selector="tappedTrocaMoedaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zby-NC-2o7"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-YK-vWQ">
-                                <rect key="frame" x="30" y="329" width="194" height="33"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor convertido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCg-Id-WXV">
-                                <rect key="frame" x="30" y="456" width="143" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbg-RU-xS0">
-                                <rect key="frame" x="304" y="456" width="80" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="jel-Sm-ngb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moeda Destino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bA5-to-NIp">
-                                <rect key="frame" x="136.5" y="280" width="141" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Be1-Jg-3Fx">
-                                <rect key="frame" x="126" y="537" width="120" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Converter"/>
-                                <connections>
-                                    <action selector="tappedConverterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ARo-BE-1nW"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.78333005038174719" green="0.78333005038174719" blue="0.78333005038174719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="50s-4d-GFH" firstAttribute="top" secondItem="kNw-wp-a4B" secondAttribute="bottom" constant="25" id="04v-Jw-i18"/>
-                            <constraint firstItem="bA5-to-NIp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9N8-Jq-9lT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xbg-RU-xS0" secondAttribute="trailing" constant="30" id="AP6-Hr-1uz"/>
-                            <constraint firstItem="cXy-Ng-1Ec" firstAttribute="centerY" secondItem="d85-ZM-zP9" secondAttribute="centerY" id="G7o-Di-Jz3"/>
-                            <constraint firstItem="ZnG-YK-vWQ" firstAttribute="top" secondItem="bA5-to-NIp" secondAttribute="bottom" constant="25" id="HyZ-fx-IF7"/>
-                            <constraint firstItem="ZnG-YK-vWQ" firstAttribute="centerY" secondItem="9kU-8o-nq3" secondAttribute="centerY" id="KQ9-pd-Nmu"/>
-                            <constraint firstItem="d85-ZM-zP9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Lvd-KN-SJ9"/>
-                            <constraint firstItem="9kU-8o-nq3" firstAttribute="top" secondItem="bA5-to-NIp" secondAttribute="bottom" constant="25" id="PdD-el-bhI"/>
-                            <constraint firstItem="50s-4d-GFH" firstAttribute="centerY" secondItem="12I-ht-gjj" secondAttribute="centerY" id="UAq-7L-XY3"/>
-                            <constraint firstItem="12I-ht-gjj" firstAttribute="top" secondItem="kNw-wp-a4B" secondAttribute="bottom" constant="25" id="VRQ-qT-Oew"/>
-                            <constraint firstItem="YCg-Id-WXV" firstAttribute="top" secondItem="d85-ZM-zP9" secondAttribute="bottom" constant="30" id="Y0S-YF-91Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cXy-Ng-1Ec" secondAttribute="trailing" constant="30" id="Zcr-Az-kCD"/>
-                            <constraint firstItem="YCg-Id-WXV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="a88-Yc-4Lu"/>
-                            <constraint firstItem="bA5-to-NIp" firstAttribute="top" secondItem="50s-4d-GFH" secondAttribute="bottom" constant="80" id="d3a-3w-iSc"/>
-                            <constraint firstItem="xbg-RU-xS0" firstAttribute="centerY" secondItem="YCg-Id-WXV" secondAttribute="centerY" id="dls-uG-Kjo"/>
-                            <constraint firstItem="kNw-wp-a4B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g4r-J5-3cB"/>
-                            <constraint firstItem="d85-ZM-zP9" firstAttribute="top" secondItem="ZnG-YK-vWQ" secondAttribute="bottom" constant="40" id="i3F-wa-8HB"/>
-                            <constraint firstItem="50s-4d-GFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="ncN-oi-I6b"/>
-                            <constraint firstItem="ZnG-YK-vWQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="p85-3l-LEW"/>
-                            <constraint firstItem="12I-ht-gjj" firstAttribute="leading" secondItem="50s-4d-GFH" secondAttribute="trailing" constant="50" id="pki-QS-OzB"/>
-                            <constraint firstItem="9kU-8o-nq3" firstAttribute="leading" secondItem="ZnG-YK-vWQ" secondAttribute="trailing" constant="50" id="rbm-la-xnU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9kU-8o-nq3" secondAttribute="trailing" constant="30" id="sMA-ec-PK5"/>
-                            <constraint firstItem="kNw-wp-a4B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="tmI-Wx-EEV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="12I-ht-gjj" secondAttribute="trailing" constant="30" id="u1F-oO-kpP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JCb-PO-uca" secondAttribute="bottom" constant="250" id="DVL-hO-nEv"/>
+                            <constraint firstItem="JCb-PO-uca" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="NcN-aO-DNp"/>
+                            <constraint firstItem="JCb-PO-uca" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Vde-qS-Tij"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JCb-PO-uca" secondAttribute="trailing" constant="40" id="mHp-Ep-NdO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Conversão de moeda" id="bjP-Ns-eTQ">
                         <barButtonItem key="backBarButtonItem" title=" " id="72u-rm-pov"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="moedaDesLabel" destination="ZnG-YK-vWQ" id="e53-s6-cGl"/>
-                        <outlet property="moedaOriLabel" destination="50s-4d-GFH" id="iRL-YG-lBo"/>
-                        <outlet property="valueConvertidoLabel" destination="xbg-RU-xS0" id="NFS-ao-HaH"/>
-                        <outlet property="valueTextField" destination="cXy-Ng-1Ec" id="OUi-rP-T8N"/>
+                        <outlet property="backView" destination="JCb-PO-uca" id="bg4-jm-1nz"/>
+                        <outlet property="convertButton" destination="BBP-Fa-bxj" id="Og8-Jh-MHM"/>
+                        <outlet property="moedaDesLabel" destination="a6v-aT-7d0" id="kfd-2p-wcx"/>
+                        <outlet property="moedaOriLabel" destination="eb7-gz-PRw" id="47N-Uz-7L1"/>
+                        <outlet property="valueConvertidoLabel" destination="b1j-VP-yqh" id="JbT-yM-ATU"/>
+                        <outlet property="valueTextField" destination="JTo-mr-9Ew" id="5Je-iT-ujm"/>
                         <segue destination="oE1-EP-ClN" kind="show" identifier="segueListaMoeda" id="BiF-c7-awg"/>
                     </connections>
                 </viewController>
@@ -151,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fgB-n3-Ezd">
-                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="XXn-GZ-ui3" detailTextLabel="7yU-yj-7c6" style="IBUITableViewCellStyleSubtitle" id="zQp-GT-UZk">
@@ -180,26 +194,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-A6-cKO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="phy-RZ-iv4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qVB-A6-cKO" firstAttribute="trailing" secondItem="phy-RZ-iv4" secondAttribute="trailing" id="36R-4u-eAx"/>
-                            <constraint firstItem="fgB-n3-Ezd" firstAttribute="top" secondItem="qVB-A6-cKO" secondAttribute="bottom" id="5cj-Km-uay"/>
                             <constraint firstItem="fgB-n3-Ezd" firstAttribute="leading" secondItem="phy-RZ-iv4" secondAttribute="leading" id="E4R-cj-P0Y"/>
+                            <constraint firstItem="fgB-n3-Ezd" firstAttribute="top" secondItem="phy-RZ-iv4" secondAttribute="top" id="jEg-gc-qAF"/>
                             <constraint firstAttribute="bottom" secondItem="fgB-n3-Ezd" secondAttribute="bottom" id="kcM-JW-WfD"/>
                             <constraint firstItem="phy-RZ-iv4" firstAttribute="trailing" secondItem="fgB-n3-Ezd" secondAttribute="trailing" id="oCT-kY-HNn"/>
-                            <constraint firstItem="qVB-A6-cKO" firstAttribute="top" secondItem="phy-RZ-iv4" secondAttribute="top" id="zAq-qg-4sX"/>
-                            <constraint firstItem="qVB-A6-cKO" firstAttribute="leading" secondItem="phy-RZ-iv4" secondAttribute="leading" id="ztf-Qw-ffQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Listagem de moedas" id="rw7-6z-LYj"/>
                     <connections>
-                        <outlet property="searchBar" destination="qVB-A6-cKO" id="p09-XO-R8U"/>
                         <outlet property="tableView" destination="fgB-n3-Ezd" id="1bC-3n-VyC"/>
                     </connections>
                 </viewController>
@@ -212,8 +218,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Bg-It-6Od" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VcD-z9-SmK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VcD-z9-SmK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -227,6 +233,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dollar" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

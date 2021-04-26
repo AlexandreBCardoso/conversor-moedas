@@ -18,26 +18,39 @@ class ListagemMoedasVC: UIViewController {
 	
 	// MARK: - IBOutlet
 	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var searchBar: UISearchBar!
 	
 	// MARK: - Variable
 	private let viewModel: ListagemMoedasVM = ListagemMoedasVM()
 	weak var delegate: ListagemMoedasVCProtocol?
+	
+	lazy var searchController: UISearchController = {
+		let search = UISearchController(searchResultsController: nil)
+		search.searchBar.placeholder = "Buscar Moeda"
+		return search
+	}()
 	
 	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.searchBar.delegate = self
-		self.viewModel.delegate = self
-		
+		configureSearchController()
+		configureDelegate()
 		configureTableView()
 		loadListCurrency()
 	}
 	
 	
 	// MARK: - Function
+	private func configureSearchController() {
+		navigationItem.searchController = searchController
+		navigationItem.hidesSearchBarWhenScrolling = false
+	}
+	
+	private func configureDelegate() {
+		self.viewModel.delegate = self
+	}
+	
 	private func configureTableView() {
 		self.tableView.dataSource = self
 		self.tableView.delegate = self
@@ -79,32 +92,32 @@ extension ListagemMoedasVC: UITableViewDataSource, UITableViewDelegate {
 
 
 // MARK: - Extension SearchBar
-extension ListagemMoedasVC: UISearchBarDelegate {
-	
-	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		self.viewModel.searchBar(textDidChange: searchText)
-		self.tableView.reloadData()
-	}
-	
-	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-		self.viewModel.isActiveSearchBar(value: true)
-	}
-	
-	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-		self.viewModel.isActiveSearchBar(value: false)
-	}
-	
-	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		self.viewModel.isActiveSearchBar(value: false)
-		searchBar.resignFirstResponder()
-	}
-	
-	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-		self.viewModel.searchBarActive = false
-		searchBar.resignFirstResponder()
-	}
-	
-}
+//extension ListagemMoedasVC: UISearchBarDelegate {
+//
+//	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//		self.viewModel.searchBar(textDidChange: searchText)
+//		self.tableView.reloadData()
+//	}
+//
+//	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//		self.viewModel.isActiveSearchBar(value: true)
+//	}
+//
+//	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//		self.viewModel.isActiveSearchBar(value: false)
+//	}
+//
+//	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//		self.viewModel.isActiveSearchBar(value: false)
+//		searchBar.resignFirstResponder()
+//	}
+//
+//	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//		self.viewModel.searchBarActive = false
+//		searchBar.resignFirstResponder()
+//	}
+//
+//}
 
 
 // MARK: - Extension ViewModel Delegate
@@ -119,16 +132,6 @@ extension ListagemMoedasVC: ListagemMoedasVMDelegate {
 		self.delegate?.didSelectedCurrrencyDestino(value: value)
 		self.navigationController?.popViewController(animated: true)
 	}
-	
-	
-//	func didSelectecCurrency(value: Currency?) {
-//		//		if buttonTag == 1 {
-//		//			self.delegate?.didSelectedCurrrencyOrigem(value: value)
-//		//		} else {
-//		//			self.delegate?.didSelectedCurrrencyDestino(value: value)
-//		//		}
-//		//		self.navigationController?.popViewController(animated: true)
-//	}
 	
 	func success() {
 		DispatchQueue.main.async {

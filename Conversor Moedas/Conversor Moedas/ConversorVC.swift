@@ -14,10 +14,12 @@ enum Segue: String {
 class ConversorVC: UIViewController {
 	
 	// MARK: - IBOutlet
+	@IBOutlet weak var backView: UIView!
 	@IBOutlet weak var moedaOriLabel: UILabel!
 	@IBOutlet weak var valueTextField: UITextField!
 	@IBOutlet weak var moedaDesLabel: UILabel!
 	@IBOutlet weak var valueConvertidoLabel: UILabel!
+	@IBOutlet weak var convertButton: UIButton!
 	
 	// MARK: - Variable
 	private let viewModel: ConversorVM = ConversorVM()
@@ -27,9 +29,8 @@ class ConversorVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.viewModel.delegate = self
-		
-		configureTextField()
+		setupLayout()
+		setupDelegate()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,8 +44,14 @@ class ConversorVC: UIViewController {
 	
 	
 	// MARK: - Function
-	private func configureTextField() {
+	private func setupLayout() {
+		self.backView.layer.cornerRadius = 15
+		self.convertButton.layer.cornerRadius = 10
+	}
+	
+	private func setupDelegate() {
 		self.valueTextField.delegate = self
+		self.viewModel.delegate = self
 	}
 	
 	
