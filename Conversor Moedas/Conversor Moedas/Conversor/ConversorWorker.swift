@@ -27,8 +27,7 @@ class ConversorWorker {
 			let jsonDecoder = JSONDecoder()
 			
 			do {
-				var list = try jsonDecoder.decode(ListCurrencyExchange.self, from: _data)
-				list.loadQuotes()
+				let list = try jsonDecoder.decode(ListCurrencyExchange.self, from: _data)
 				completion(list, nil)
 				
 			} catch {

@@ -31,6 +31,7 @@ class ConversorVC: UIViewController {
 		
 		setupLayout()
 		setupDelegate()
+		setupTextField()
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,6 +48,7 @@ class ConversorVC: UIViewController {
 	private func setupLayout() {
 		self.backView.layer.cornerRadius = 15
 		self.convertButton.layer.cornerRadius = 10
+		self.convertButton.isHidden = true
 	}
 	
 	private func setupDelegate() {
@@ -54,13 +56,40 @@ class ConversorVC: UIViewController {
 		self.viewModel.delegate = self
 	}
 	
+	private func setupTextField() {
+		let toolbar = UIToolbar()
+		toolbar.barStyle = .default
+		toolbar.isTranslucent = true
+		toolbar.tintColor = .blue
+		toolbar.backgroundColor = .white
+		toolbar.sizeToFit()
+		
+		let buttonOK = UIBarButtonItem(title: "OK", style: .plain, target: self, action: #selector(actionButtonOK))
+		let buttonSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+		
+		toolbar.setItems([buttonSpace, buttonOK], animated: true)
+		toolbar.isUserInteractionEnabled = true
+		
+		self.valueTextField.inputAccessoryView = toolbar
+	}
+	
+	@objc
+	func actionButtonOK() {
+		self.valueTextField.resignFirstResponder()
+		if self.valueTextField.text != "" {
+			self.convertButton.isHidden = false
+		}
+	}
+	
 	
 	// MARK: - IBAction
 	@IBAction func tappedTrocaMoedaButton(_ sender: UIButton) {
+		self.valueConvertidoLabel.text = "0.00"
 		performSegue(withIdentifier: Segue.listaMoeda.rawValue, sender: sender.tag)
 	}
 	
 	@IBAction func tappedConverterButton(_ sender: UIButton) {
+		
 		self.viewModel.getQuotes(value: valueTextField.text ?? "",
 										 origin: self.moedaOriLabel.text ?? "",
 										 destiny: self.moedaDesLabel.text ?? "")

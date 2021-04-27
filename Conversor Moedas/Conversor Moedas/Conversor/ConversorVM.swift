@@ -23,12 +23,24 @@ class ConversorVM {
 		ConversorWorker().loadListQuotes { (quotes, error) in
 			if let _quotes = quotes {
 				self.quotes = _quotes
+				self.calculateExchange(value: value, origin: origin, destiny: destiny)
 			}
 			
 		}
 	}
 	
 	private func calculateExchange(value: String, origin: String, destiny: String) {
+		let quantity: Double = Double(value) ?? 0.0
+		let currencyCodeOrigem: String = "USD" + origin
+		let currencyCodeDestino: String = "USD" + destiny
+		
+		let currencyValueOrigem: Double = self.quotes?.quotes[currencyCodeOrigem] ?? 0.0
+		let currencyValueDestino: Double = self.quotes?.quotes[currencyCodeDestino] ?? 0.0
+		
+		let valueDollar: Double = quantity / currencyValueOrigem
+		let valueConvert: Double = currencyValueDestino * valueDollar
+				
+		self.delegate?.successCalculatingExchangeValue(value: String(format: "%.2f", valueConvert))
 	}
 	
 	

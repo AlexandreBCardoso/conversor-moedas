@@ -26,18 +26,7 @@ struct ListCurrencyExchange: Decodable {
 	let privacy: String
 	let timestamp: Int
 	let source: String
-	let quotes: [String: Double]
-	var quotesLoad: [QuotesExchange]? = []
-
-	mutating func loadQuotes() {
-		var temp: [QuotesExchange] = []
-
-		for (key, value) in quotes {
-			temp.append(QuotesExchange(code: key, value: value))
-		}
-		self.quotesLoad = temp
-	}
-	
+	let quotes: [String: Double]	
 }
 
 struct QuotesExchange: Decodable {
