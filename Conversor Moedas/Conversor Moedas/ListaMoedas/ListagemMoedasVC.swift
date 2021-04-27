@@ -45,6 +45,8 @@ class ListagemMoedasVC: UIViewController {
 	private func configureSearchController() {
 		navigationItem.searchController = searchController
 		navigationItem.hidesSearchBarWhenScrolling = false
+		self.searchController.searchBar.delegate = self
+		self.searchController.obscuresBackgroundDuringPresentation = false
 	}
 	
 	private func configureDelegate() {
@@ -92,32 +94,25 @@ extension ListagemMoedasVC: UITableViewDataSource, UITableViewDelegate {
 
 
 // MARK: - Extension SearchBar
-//extension ListagemMoedasVC: UISearchBarDelegate {
-//
-//	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//		self.viewModel.searchBar(textDidChange: searchText)
-//		self.tableView.reloadData()
-//	}
-//
-//	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//		self.viewModel.isActiveSearchBar(value: true)
-//	}
-//
-//	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//		self.viewModel.isActiveSearchBar(value: false)
-//	}
-//
-//	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//		self.viewModel.isActiveSearchBar(value: false)
-//		searchBar.resignFirstResponder()
-//	}
-//
-//	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//		self.viewModel.searchBarActive = false
-//		searchBar.resignFirstResponder()
-//	}
-//
-//}
+extension ListagemMoedasVC: UISearchBarDelegate {
+
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		self.viewModel.searchBar(textDidChange: searchText)
+		self.tableView.reloadData()
+	}
+
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		self.viewModel.isActiveSearchBar(value: true)
+		searchBar.resignFirstResponder()
+	}
+
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		self.viewModel.isActiveSearchBar(value: false)
+		searchBar.resignFirstResponder()
+		self.tableView.reloadData()
+	}
+
+}
 
 
 // MARK: - Extension ViewModel Delegate

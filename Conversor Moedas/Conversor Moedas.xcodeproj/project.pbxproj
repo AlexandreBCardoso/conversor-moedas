@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC783B292637901100E88DCF /* ExchangeQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC783B282637901100E88DCF /* ExchangeQuote.swift */; };
 		BCAADB772630C31F00BEB425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB762630C31F00BEB425 /* AppDelegate.swift */; };
 		BCAADB792630C31F00BEB425 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAADB782630C31F00BEB425 /* SceneDelegate.swift */; };
 		BCAADB7E2630C31F00BEB425 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAADB7C2630C31F00BEB425 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC783B282637901100E88DCF /* ExchangeQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeQuote.swift; sourceTree = "<group>"; };
 		BCAADB732630C31F00BEB425 /* Conversor Moedas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversor Moedas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAADB762630C31F00BEB425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAADB782630C31F00BEB425 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC783B2626378F7E00E88DCF /* Conversor */ = {
+			isa = PBXGroup;
+			children = (
+				BC783B282637901100E88DCF /* ExchangeQuote.swift */,
+				BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */,
+				BCDA87C926324BD30066519A /* ConversorVM.swift */,
+				BCDA87CD26324C810066519A /* ConversorWorker.swift */,
+			);
+			path = Conversor;
+			sourceTree = "<group>";
+		};
+		BC783B2726378FC300E88DCF /* ListaMoedas */ = {
+			isa = PBXGroup;
+			children = (
+				BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */,
+				BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */,
+				BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */,
+				BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */,
+			);
+			path = ListaMoedas;
+			sourceTree = "<group>";
+		};
 		BCAADB6A2630C31E00BEB425 = {
 			isa = PBXGroup;
 			children = (
@@ -68,16 +92,11 @@
 		BCAADB752630C31F00BEB425 /* Conversor Moedas */ = {
 			isa = PBXGroup;
 			children = (
+				BC783B2626378F7E00E88DCF /* Conversor */,
+				BC783B2726378FC300E88DCF /* ListaMoedas */,
 				BCAADB762630C31F00BEB425 /* AppDelegate.swift */,
 				BCAADB782630C31F00BEB425 /* SceneDelegate.swift */,
 				BCAADB7C2630C31F00BEB425 /* Main.storyboard */,
-				BCAADB9A2630CEEC00BEB425 /* ListCurrency.swift */,
-				BCAADB8D2630C77D00BEB425 /* ConversorVC.swift */,
-				BCAADB902630CA8400BEB425 /* ListagemMoedasVC.swift */,
-				BCAADB942630CD5F00BEB425 /* ListagemMoedasVM.swift */,
-				BCDA87C926324BD30066519A /* ConversorVM.swift */,
-				BCAADB972630CE2200BEB425 /* ListagemMoedasWorker.swift */,
-				BCDA87CD26324C810066519A /* ConversorWorker.swift */,
 				BCAADB7F2630C32000BEB425 /* Assets.xcassets */,
 				BCAADB812630C32000BEB425 /* LaunchScreen.storyboard */,
 				BCAADB842630C32000BEB425 /* Info.plist */,
@@ -160,6 +179,7 @@
 				BCAADB9B2630CEEC00BEB425 /* ListCurrency.swift in Sources */,
 				BCDA87CE26324C810066519A /* ConversorWorker.swift in Sources */,
 				BCAADB912630CA8400BEB425 /* ListagemMoedasVC.swift in Sources */,
+				BC783B292637901100E88DCF /* ExchangeQuote.swift in Sources */,
 				BCAADB8E2630C77D00BEB425 /* ConversorVC.swift in Sources */,
 				BCAADB952630CD5F00BEB425 /* ListagemMoedasVM.swift in Sources */,
 				BCAADB982630CE2200BEB425 /* ListagemMoedasWorker.swift in Sources */,

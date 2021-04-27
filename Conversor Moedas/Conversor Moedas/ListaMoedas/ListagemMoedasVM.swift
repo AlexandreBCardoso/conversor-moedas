@@ -19,9 +19,9 @@ class ListagemMoedasVM {
 	// MARK: - Variable
 	private let listMoedaWorker: ListagemMoedasWorker = ListagemMoedasWorker()
 	private var listCurrency: ListCurrency?
-//	private var currencies: [Currency] = [Currency]()
 	private var currenciesFiltered: [Currency] = [Currency]()
-	var searchBarActive: Bool = false
+	private var searchBarActive: Bool = false
+	private var searchNotFound: Bool = false
 	weak var delegate: ListagemMoedasVMDelegate?
 	private var tag: Int?
 	
@@ -39,6 +39,10 @@ class ListagemMoedasVM {
 	}
 	
 	func numberOfRows() -> Int {
+		if self.searchNotFound {
+			return 1
+		}
+		
 		if self.searchBarActive {
 			return self.currenciesFiltered.count
 		} else {
@@ -47,13 +51,18 @@ class ListagemMoedasVM {
 	}
 	
 	func getCurrency(indexPath: IndexPath) -> Currency? {
+		
+		if self.searchNotFound {
+			return Currency(code: "", name: "Não encontrado Moeda")
+		}
+		
 		if self.searchBarActive {
 			return self.currenciesFiltered[indexPath.row]
 		} else {
 			return (self.listCurrency?.currenciesLoad?[indexPath.row])!
 		}
 	}
-	
+		
 	func isActiveSearchBar(value: Bool) {
 		self.searchBarActive = value
 	}
@@ -74,8 +83,10 @@ class ListagemMoedasVM {
 		
 		if self.currenciesFiltered.count == 0 {
 			self.searchBarActive = false
+			self.searchNotFound = true
 		} else {
 			self.searchBarActive = true
+			self.searchNotFound = false
 		}
 		
 	}

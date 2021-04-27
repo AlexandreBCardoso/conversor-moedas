@@ -29,11 +29,6 @@ class ConversorVM {
 	}
 	
 	private func calculateExchange(value: String, origin: String, destiny: String) {
-		let _value: Double = Double(value) ?? 0.0
-		
-		
-		
-		self.delegate?.successCalculatingExchangeValue(value: "\(destiny): ")
 	}
 	
 	
